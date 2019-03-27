@@ -59,7 +59,7 @@ export default class ManageJob extends React.Component {
     loadData(callback) {
         var link = 'http://localhost:51689/listing/listing/getSortedEmployerJobs';
         var cookies = Cookies.get('talentAuthToken');
-        // your ajax call and other logic goes here
+      
 
         $.ajax({
             data: {
@@ -155,7 +155,7 @@ export default class ManageJob extends React.Component {
         else {
             datalist = "No Jobs Found";
         }
-        //console.log("list", this.props.datalist);
+
 
         const filterOptions = [
             { key: 'showActive', text: 'showActive', value: 'showActive' },
