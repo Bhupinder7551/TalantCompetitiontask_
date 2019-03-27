@@ -117,6 +117,7 @@ export default class ManageJob extends React.Component {
         if (list != "") {
             datalist = list.map(card =>
                 <Card key={card.id}>
+
                     <Card.Content>
                         <Card.Header>{card.title}</Card.Header>
 
