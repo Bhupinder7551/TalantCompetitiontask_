@@ -158,8 +158,7 @@ export default class ManageJob extends React.Component {
                                 <Label color='red'>Expired</Label>
 
                             }
-
-                        </span>
+                                             </span>
 
                         <span className="right floated">
                             <Button.Group>
