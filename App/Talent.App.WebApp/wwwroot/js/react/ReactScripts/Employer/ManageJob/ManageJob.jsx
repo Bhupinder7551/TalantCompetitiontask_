@@ -35,6 +35,9 @@ export default class ManageJob extends React.Component {
         this.loadData = this.loadData.bind(this);
         this.init = this.init.bind(this);
         this.loadNewData = this.loadNewData.bind(this);
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+        this.copy = this.copy.bind(this);
         //your functions go here
     };
 
@@ -59,7 +62,7 @@ export default class ManageJob extends React.Component {
     loadData(callback) {
         var link = 'http://localhost:51689/listing/listing/getSortedEmployerJobs';
         var cookies = Cookies.get('talentAuthToken');
-      
+
 
         $.ajax({
             data: {
@@ -108,6 +111,23 @@ export default class ManageJob extends React.Component {
         });
 
     }
+    open() {
+        this.setState({ open: true });
+     
+    }
+    close() {
+        this.setState({ open: false });
+      
+
+    }
+    copy() {
+        this.setState(alert("data is coppied!!!"));
+        window.location.reload();
+    }
+    edit() {
+        this.setState({ edit: true });
+
+    }
 
     render() {
         let list = this.state.loadJobs;
@@ -144,8 +164,8 @@ export default class ManageJob extends React.Component {
                         <span className="right floated">
                             <Button.Group>
                                 <Button className="ui blue basic"><i className="window close outline icon"></i>Close</Button>
-                                <Button className="ui blue basic"><i className="edit icon"></i>Edit</Button>
-                                <Button className="ui blue basic"><i className="copy icon"></i>Copy</Button>
+                                <Button onclick={this.edit}className="ui blue basic"><i className="edit icon"></i>Edit</Button>
+                                <Button onClick={this.open} className="ui blue basic"><i className="copy icon"></i>Copy</Button>
                             </Button.Group>
                         </span>
                     </Card.Content>
@@ -207,6 +227,23 @@ export default class ManageJob extends React.Component {
 
                 </div>
 
+
+
+
+
+                <Modal open={this.state.open} size='small'>
+
+                  
+                    <Modal.Content>
+                        <Modal.Header> Are you sure you want to copy it!!! </Modal.Header>
+                    </Modal.Content>
+                    <Modal.Actions>
+
+                        <button className="ui secondary button" onClick={this.close}>Cancel</button>
+                        <button onClick={this.copy} className="ui green button" >Copy <i className="check icon"></i></button>
+                    </Modal.Actions>
+                </Modal>
+               
             </BodyWrapper >
         )
 
