@@ -8,6 +8,7 @@ export const loaderData = {
     allowedUsers: []
 };
 
+
 export class BodyWrapper extends React.Component {
     constructor(props) {
         super(props);
